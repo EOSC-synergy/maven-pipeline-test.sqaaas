@@ -1,0 +1,19 @@
+config:
+  credentials: []
+  project_repos:
+    checkstyle-sample:
+      branch: master
+      deploy_template: .sqa/docker-compose.yml
+      repo: https://github.com/EOSC-synergy/checkstyle-samples.git
+environment: {}
+sqa_criteria:
+  qc_style:
+    repos:
+      checkstyle-sample:
+        commands:
+        - mvn checkstyle:check
+        container: maven-testing
+        tox:
+          testenv: []
+          tox_file: ''
+timeout: '600'
